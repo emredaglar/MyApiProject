@@ -10,10 +10,17 @@ using System.Threading.Tasks;
 
 namespace MyApiProject.DataAccessLayer.EntityFreamwork
 {
-	public class EfCategoryDal : GenericRepository<Category>, ICategoryDal
-	{
-		public EfCategoryDal(ApiContext context) : base(context)
-		{
-		}
-	}
+    public class EfCategoryDal : GenericRepository<Category>, ICategoryDal
+    {
+        public EfCategoryDal(ApiContext context) : base(context)
+        {
+        }
+
+        public int CategoryCount()
+        {
+            var context = new ApiContext();
+            int values = context.Categories.Count();
+            return values;
+        }
+    }
 }

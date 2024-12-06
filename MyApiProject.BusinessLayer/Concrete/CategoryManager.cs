@@ -18,7 +18,12 @@ namespace MyApiProject.BusinessLayer.Concrete
 			_categoryDal = categoryDal;
 		}
 
-		public void TDelete(int id)
+        public int TCategoryCount()
+        {
+           return _categoryDal.CategoryCount();
+        }
+
+        public void TDelete(int id)
 		{
 			_categoryDal.Delete(id);
 		}
